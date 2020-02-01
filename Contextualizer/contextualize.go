@@ -1,4 +1,4 @@
-package contextualizer
+package Contextualizer
 
 import (
 	"encoding/json"
@@ -10,7 +10,8 @@ import (
 )
 
 func Contextualize(w http.ResponseWriter, r *http.Request) {
-	message := message.Message.Transcript{}
+	response := Message.Message{}
+
 	if err := json.NewDecoder(r.Body).Decode(&message); err != nil {
 		fmt.Fprint(w, "An error has occured")
 		return
