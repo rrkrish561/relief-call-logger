@@ -26,7 +26,7 @@ func Contextualize(w http.ResponseWriter, r *http.Request) {
 
 	amRequest := automIO.AutomlRequest{
 		ProjectID: "grand-harbor-266914",
-		Location:  "us",
+		Location:  "us-central1",
 		ModelID:   "TEN1465862305081196544",
 		Content:   callerResponse.Transcript,
 	}
