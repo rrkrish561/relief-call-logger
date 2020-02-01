@@ -1,7 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/rrkrish561/relief-call-logger/Caller"
+)
 
 func main() {
-	fmt.Println("hi");
+	fmt.Println("hi")
+
+	newCaller := Caller.Caller{
+		CallId: "hi",
+	}
+	fmt.Println(newCaller)
+
 }
