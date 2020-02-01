@@ -1,10 +1,10 @@
 package Automl
 
 type AutomlRequest struct {
-	ProjectID    string
-	SessionID    string
-	Text         string
-	LanguageCode string
+	ProjectID string
+	Location  string
+	ModelID   string
+	Content   string
 }
 
 type AutomlResponse struct {
