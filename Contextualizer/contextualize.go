@@ -12,7 +12,7 @@ import (
 func Contextualize(w http.ResponseWriter, r *http.Request) {
 	response := Message.Message{}
 
-	if err := json.NewDecoder(r.Body).Decode(&message); err != nil {
+	if err := json.NewDecoder(r.Body).Decode(&response); err != nil {
 		fmt.Fprint(w, "An error has occured")
 		return
 	}
