@@ -7,8 +7,8 @@ import (
 	"log"
 	"net/http"
 
-	//"github.com/rrkrish561/relief-call-logger/Caller"
 	automIO "github.com/rrkrish561/relief-call-logger/Automl"
+	"github.com/rrkrish561/relief-call-logger/Data"
 	"github.com/rrkrish561/relief-call-logger/Message"
 
 	automl "cloud.google.com/go/automl/apiv1"
@@ -63,6 +63,8 @@ func languageEntityExtractionPredict(amRequest automIO.AutomlRequest) error {
 		return err
 	}
 
+	data := Data.Data{}
+
 	for _, payload := range resp.GetPayload() {
 		fmt.Printf("Text extract entity types: %v\n", payload.GetDisplayName())
 		fmt.Printf("Text score: %v\n", payload.GetTextExtraction().GetScore())
@@ -72,5 +74,8 @@ func languageEntityExtractionPredict(amRequest automIO.AutomlRequest) error {
 		fmt.Printf("Text end offset: %v\n", textSegment.GetEndOffset())
 	}
 
-	return nil
+	err := data.UpdateTable()
+	if err != nil {
+		return err
+	}
 }
