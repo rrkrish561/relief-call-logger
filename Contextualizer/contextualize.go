@@ -74,8 +74,10 @@ func languageEntityExtractionPredict(amRequest automIO.AutomlRequest) error {
 		fmt.Printf("Text end offset: %v\n", textSegment.GetEndOffset())
 	}
 
-	err := data.UpdateTable()
+	err = data.UpdateTable()
 	if err != nil {
 		return err
 	}
+
+	return nil
 }
